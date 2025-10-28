@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TextInput, View } from "react-native";
+import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
   return (
@@ -13,8 +13,16 @@ export default function Index() {
 
         <Text style={styles.label}>Senha</Text>
         <TextInput style={styles.input} placeholder="Digite sua senha" secureTextEntry/>
-
+        <View style={styles.buttonC}>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>ENTRAR</Text>
+        </TouchableOpacity>
+        </View>
+        <Text style={styles.link}>Esqueci minha senha</Text>
       </View>
+      <Text style={styles.footer}>
+        Não tem uma conta? <Text style={styles.signup}>Cadastra-se</Text>
+      </Text>
     </View>
   );
 }
@@ -61,6 +69,36 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 10,
     marginBottom: 15,
-    backgroundColor: '#FFF0F0',
+  },
+  button: {
+    backgroundColor: '#73443E',
+    width: 221,
+    height: 42,
+    borderRadius: 8,
+    paddingVertical: 12,
+    alignItems: 'center',
+    marginTop: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  buttonC: {
+    alignItems: 'center'
+  },
+  link: {
+    color: '#73443E',
+    textAlign: 'center',
+    marginTop: 10,
+    fontSize: 13,
+  },
+  footer: {
+    marginTop: 30,
+    fontSize: 14,
+    color: '#999',
+  },
+  signup: {
+    color: '#73443E',
+    fontWeight: 'bold',
   }
 })
