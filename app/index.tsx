@@ -30,7 +30,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFF5F5',
+    backgroundColor: '#FFF6F7',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 20,
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   titulo: {
     fontSize: 18,
     color: '#828181',
-    fontWeight: '600',
+    fontWeight: '500',
     marginBottom: 30,
   },
   form: {
@@ -65,13 +65,14 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#E5CACA',
+    borderColor: '#0000002d',
     borderRadius: 8,
     padding: 10,
     marginBottom: 15,
+    backgroundColor: '#FFF6F7',
   },
   button: {
-    backgroundColor: '#73443E',
+    backgroundColor: '#6B3F31',
     width: 221,
     height: 42,
     borderRadius: 8,
@@ -87,7 +88,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   link: {
-    color: '#73443E',
+    color: '#6B3F31',
     textAlign: 'center',
     marginTop: 10,
     fontSize: 13,
@@ -95,10 +96,10 @@ const styles = StyleSheet.create({
   footer: {
     marginTop: 30,
     fontSize: 14,
-    color: '#999',
+    color: '#7E7E7E',
   },
   signup: {
-    color: '#73443E',
+    color: '#6B3F31',
     fontWeight: 'bold',
   }
 })
