@@ -1,3 +1,4 @@
+import { Link } from 'expo-router';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function Index() {
@@ -23,6 +24,7 @@ export default function Index() {
       <Text style={styles.footer}>
         Não tem uma conta? <Text style={styles.signup}>Cadastra-se</Text>
       </Text>
+      <Link href={{ pathname: '../pages/home'}}>Quero Iniciar!</Link> 
     </View>
   );
 }
@@ -73,8 +75,8 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#6B3F31',
-    width: 221,
-    height: 42,
+    width: '100%',
+    height: 45,
     borderRadius: 8,
     paddingVertical: 12,
     alignItems: 'center',
@@ -82,6 +84,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: '#fff',
+    fontSize: 18,
     fontWeight: 'bold',
   },
   buttonC: {
