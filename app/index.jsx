@@ -1,5 +1,6 @@
-import { Link } from 'expo-router';
+import { router } from 'expo-router';
 import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+
 
 export default function Index() {
   return (
@@ -15,7 +16,7 @@ export default function Index() {
         <Text style={styles.label}>Senha</Text>
         <TextInput style={styles.input} placeholder="Digite sua senha" secureTextEntry/>
         <View style={styles.buttonC}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={() => router.push('../pages/home')}>
           <Text style={styles.buttonText}>ENTRAR</Text>
         </TouchableOpacity>
         </View>
@@ -24,7 +25,6 @@ export default function Index() {
       <Text style={styles.footer}>
         Não tem uma conta? <Text style={styles.signup}>Cadastra-se</Text>
       </Text>
-      <Link href={{ pathname: '../pages/home'}}>Quero Iniciar!</Link> 
     </View>
   );
 }

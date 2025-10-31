@@ -11,11 +11,12 @@ export default function Home() {
             </View>
             <View style={styles.title}>
                 <Text>
-                    Óla, Usuário
+                    Olá
                 </Text>
+                <View style={styles.linha}/>
             </View>
             <View style={styles.categorias}>
-
+                    <Image style={styles.imgCategoria} source={require('../../assets/images/BoloCategoria.png')}/>
             </View>
         </View>
     );
@@ -42,9 +43,21 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
         marginBottom: 20,
     },
+    imgCategoria: {
+        width: 40,
+        height: 40,
+    },
     title:{
         width: width,
-        backgroundColor: '#00000'
+        backgroundColor: '#00000',
+        marginTop: 20,
+        marginLeft: 30,
+    },
+    linha: {
+    width: '20%',
+    height: 1.5,
+    backgroundColor: '#F7B6C3',
+    marginTop: 5,
     },
     categorias: {
     }
