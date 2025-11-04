@@ -1,8 +1,37 @@
 import { router } from 'expo-router';
-import { Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import React, { useState } from 'react';
+import { Alert, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 
 
 export default function Index() {
+  // Aqui eu estou usando useState para gerenciar o estado dos campos.
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(''); // Aqui ta o estado para a mensagem de erro.
+
+  // Validação de Login.
+  const handleLogin = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    setError(''); // Vai limpar os erros anteriores.
+
+    // Verificação de campos vazios
+    if (!email.trim() || !password.trim()) {
+      setError('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    // Verificação de campos imcorretos
+    if (!emailRegex.test(email)) {
+      setError('Seu e-mail está incorreto.');
+      return;
+    }
+
+    // Aqui se tudo estiver certo vai para pagina Home "Principal"
+    Alert.alert('Sucesso', `Bem-vindo, ${email}`);
+    router.push('../pages/home')
+  }
+
   return (
     <View style={styles.container}>
       <Image style={styles.img} source={require('../assets/images/LogoCake.png')} />
@@ -11,15 +40,36 @@ export default function Index() {
 
       <View style={styles.form}>
         <Text style={styles.label}>E-mail</Text>
-        <TextInput style={styles.input} placeholder="Digite seu email"/>
+        <TextInput 
+        style={styles.input} 
+        placeholder="Digite seu email"
+        value={email}
+        onChangeText={setEmail} //atualização do estado do email
+        keyboardType='email-address' // Facilidação a entrada do email
+        autoCapitalize='none' // Desligar automática
+        />
 
         <Text style={styles.label}>Senha</Text>
-        <TextInput style={styles.input} placeholder="Digite sua senha" secureTextEntry/>
+        <TextInput 
+        style={styles.input} 
+        placeholder="Digite sua senha" 
+        secureTextEntry
+        value={password}
+        onChangeText={setPassword} //atualização do estado da senha
+        />
+
+        {error ? <Text style={styles.errorText}>{error}</Text>: null}
+
         <View style={styles.buttonC}>
-        <TouchableOpacity style={styles.button} onPress={() => router.push('../pages/home')}>
+        <TouchableOpacity style={styles.button} onPress={handleLogin}>
           <Text style={styles.buttonText}>ENTRAR</Text>
         </TouchableOpacity>
         </View>
+        {/* <View style={styles.buttonC}>
+        <TouchableOpacity style={styles.button} onPress={() => router.push('../pages/home')}>
+          <Text style={styles.buttonText}>ENTRAR</Text>
+        </TouchableOpacity>
+        </View> */}
         <Text style={styles.link}>Esqueci minha senha</Text>
       </View>
       <Text style={styles.footer}>
@@ -72,6 +122,17 @@ const styles = StyleSheet.create({
     padding: 10,
     marginBottom: 15,
     backgroundColor: '#FFF6F7',
+  },
+  errorContainer: {
+    borderWidth: 0.2,
+    borderColor: '#cfcfcfff',
+    borderRadius: 8,
+  },
+  errorText: {
+    color: '#d8000c',
+    textAlign: 'center',
+    marginBottom: 10,
+    fontWeight: '500',
   },
   button: {
     backgroundColor: '#6B3F31',
