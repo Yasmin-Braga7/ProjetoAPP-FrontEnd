@@ -88,8 +88,8 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   img: {
-    width: 145,
-    height: 145,
+    width: 180,
+    height: 180,
     resizeMode: 'contain',
     marginBottom: 20,
   },

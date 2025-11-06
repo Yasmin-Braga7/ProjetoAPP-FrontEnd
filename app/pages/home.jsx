@@ -40,6 +40,7 @@ export default function Home() {
   ];
 
   return (
+    <View style={styles.containerGeral}>
     <ScrollView contentContainerStyle={styles.principal}>
       <View style={styles.banner}>
         <Image
@@ -100,22 +101,29 @@ export default function Home() {
         ))}
       </View>
     </ScrollView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  principal: {
+  containerGeral: {
     flex: 1,
-    backgroundColor: "#ffffffff",
+    backgroundColor: '#ffffff'
+  },
+  principal: {
     alignItems: "center",
-    padding: 20,
+    // justifyContent: "center",
+    // padding: 20,
+    paddingTop:30,
   },
   banner: {
     backgroundColor: "#FFF6F7",
     justifyContent: "center",
     alignItems: "center",
     width: width,
-    paddingTop: 15,
+    paddingTop: 25,
+    marginTop: 20
+    
   },
   img: {
     width: 145,
@@ -142,7 +150,7 @@ const styles = StyleSheet.create({
     // marginBottom: 10,
   },
   linha2: {
-    width: "110%",
+    width: "100%",
     height: 1,
     backgroundColor: "#E8E8E8",
     marginTop: 10,
